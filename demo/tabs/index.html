@@ -4,23 +4,36 @@
     <h1>tabs</h1>
     <hr>
     <div>
-      <ul class="tabNav">
-        <li>tab1</li>
-        <li>tab2</li>
-        <li>tab3</li>
-      </ul>
+      <div class="tabNav">
+      </div>
     </div>
     <script src="./tabs.js"></script>
     <script type="text/javascript">
       var tabsConfig1 = {
         tag: 154,    //当前tab分组识别码
+        navContainer: '.tabNav',
         tabList: [
           {
             label: '标题1',
+            title: '1111',
+          },
+          {
             label: '标题2',
-            label: '标题3'
+            title: '2222',
+          },
+          {
+            label: '标题3',
+            title: '3333',
           }
-        ]
+        ],
+        beforeClickNav: function(e){
+          console.log(33, e)
+          if(e.navItemIndex === '2'){
+            return true
+          }else{
+            return false
+          }
+        }
       }
       console.log(this.tabs(tabsConfig1))
       console.log(this.tabs({}))
@@ -29,7 +42,7 @@
       .tabNav{
         list-style: none;
       }
-      .tabNav li{
+      .tabNav div{
         width: 100px;
         height: 40px;
         line-height: 40px;
