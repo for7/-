@@ -1,0 +1,43 @@
+<html>
+  <head></head>
+  <body>
+    <h1>tabs</h1>
+    <hr>
+    <div>
+      <ul class="tabNav">
+        <li>tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+      </ul>
+    </div>
+    <script src="./tabs.js"></script>
+    <script type="text/javascript">
+      var tabsConfig1 = {
+        tag: 154,    //当前tab分组识别码
+        tabList: [
+          {
+            label: '标题1',
+            label: '标题2',
+            label: '标题3'
+          }
+        ]
+      }
+      console.log(this.tabs(tabsConfig1))
+      console.log(this.tabs({}))
+    </script>
+    <style>
+      .tabNav{
+        list-style: none;
+      }
+      .tabNav li{
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        float: left;
+        border: 1px solid #eee;
+        text-align: center;
+        margin-left: 10px;
+      }
+    </style>
+  </body>
+</html>
