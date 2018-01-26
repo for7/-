@@ -96,7 +96,10 @@
       debugger
     },
     remove: function(index){
-      var
+      var currentEl = this.navContainerEl.children[index];
+      if(currentEl){
+        this.navContainerEl.removeChild(currentEl);
+      }
     }
   }
   var newTabs = function(config){
