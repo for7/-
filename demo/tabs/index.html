@@ -4,8 +4,10 @@
     <h1>tabs</h1>
     <hr>
     <div>
-      <div class="tabNav">
-      </div>
+      <div class="tabNav"></div>
+      <br>
+      <br>
+      <div class="tabNav2"></div>
     </div>
     <script src="./tabs.js"></script>
     <script type="text/javascript">
@@ -28,21 +30,51 @@
         ],
         beforeClickNav: function(e){
           console.log(33, e)
-          if(e.navItemIndex === '2'){
-            return true
-          }else{
-            return false
-          }
+          return true
+        },
+        afterClickNav: function(e){
+          console.log('afterClickNav')
         }
       }
-      console.log(this.tabs(tabsConfig1))
-      console.log(this.tabs({}))
+      var tabsConfig2 = {
+        tag: 1233,    //当前tab分组识别码
+        navContainer: '.tabNav2',
+        tabList: [
+          {
+            label: '标题1',
+            title: '1111',
+          },
+          {
+            label: '标题2',
+            title: '2222',
+          },
+          {
+            label: '标题3',
+            title: '3333',
+          }
+        ],
+        beforeClickNav: function(e){
+          console.log(33, e)
+          return true
+        },
+        afterClickNav: function(e){
+          console.log('afterClickNav')
+        }
+      }
+      var tab11 = this.tabs(tabsConfig1);
+      tab11.add({
+        label: '标题add',
+        title: '2222',
+      });
+      console.log(112, tab11)
+      console.log(this.tabs(tabsConfig2))
     </script>
     <style>
-      .tabNav{
+      .tabNav, .tabNav2{
         list-style: none;
+        clear: both;
       }
-      .tabNav div{
+      .tabNav div, .tabNav2 div{
         width: 100px;
         height: 40px;
         line-height: 40px;
@@ -50,6 +82,12 @@
         border: 1px solid #eee;
         text-align: center;
         margin-left: 10px;
+        cursor: pointer;
+      }
+      .tab_nav_focus{
+        font-size: 16px;
+        color: #f60;
+        font-weight: 700;
       }
     </style>
   </body>
